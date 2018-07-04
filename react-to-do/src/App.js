@@ -47,15 +47,17 @@ class App extends Component {
             <ToDo key = {index} description={todo.description}
             isCompleted ={todo.isCompleted}
             toggleComplete ={ () => this.toggleComplete(index) }
-            onDelete = { () => this.deleteTodo(index)} />
-          )}
+            onDelete = { () => this.deleteTodo(index)}/>
+          )
+          <button onClick={ () => this.props.onDelete(index)}>Delete</button>
+        }
         </ul>
         <form onSubmit={ (e) => this.handleSubmit(e) }>
           <input type="text" value={ this.state.newTodoDescription }
           onChange={ (e) => this.handleChange(e) } />
           <input type="submit" />
         </form>
-        <button onClick={ () => this.props.onDelete(index)}>Delete</button>
+
       </div>
     );
   }
